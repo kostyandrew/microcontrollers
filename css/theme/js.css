@@ -288,3 +288,28 @@ body {
     display: flex;
     flex-direction: row;
 }
+.reveal .me {
+    background: rgba(255,255,255,.9);
+    padding: 30px;
+}
+.reveal .me img {
+    border-radius: 50%;
+    float: left;
+    width: 100px;
+    margin: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+.reveal .me h2 {
+    height: 100px;
+    line-height: 100px;
+}
+
+.reveal .social {
+    margin-top: 20px;
+}
+
+.reveal .social a {
+    color: black;
+    font-size: 70px;
+}

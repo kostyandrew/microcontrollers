@@ -4,10 +4,11 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-	<title>Програмування мікроконтроллерів на JavaScript</title>
+	<title>Програмування мікроконтролерів на JavaScript</title>
 
 	<link rel="stylesheet" href="css/reveal.css">
 	<link rel="stylesheet" href="css/theme/js.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
 	<!-- Theme used for syntax highlighting of code -->
 	<link rel="stylesheet" href="lib/css/zenburn.css">
@@ -25,26 +26,44 @@
 <div class="reveal">
 	<div class="slides">
 		<section>
-			<h1>Програмування мікроконтроллерів на JavaScript</h1>
+			<h1>Програмування мікроконтролерів на JavaScript</h1>
 		</section>
 
-		<section>
-			<h2>Андрій Костецький</h2>
-			<ul>
-				<li>Випускник ЧНУ</li>
-				<li>Full stack розробник в ASD</li>
-				<li>Ментор NodeSchool Чернівці</li>
-			</ul>
+		<section data-background-image="resources/chnu.jpg">
+			<div class="me">
+				<img src="resources/me.jpg" alt=""><h2>Андрій Костецький</h2>
+				<ul>
+					<li>Full stack розробник в ASD</li>
+					<li>Ментор NodeSchool Чернівці</li>
+				</ul>
+			</div>
 		</section>
 
 		<section>
 			<section>
-				<h2>JavaScript <br>&&<br> мікроконтроллери</h2>
+				<h2>Arduino</h2>
+				<h3>2005</h3>
+				<img src="resources/ard.jpg" height="400" alt="">
+			</section>
+
+			<section>
+				<h2>Node JS</h2>
+				<h3>2009</h3>
+			</section>
+		</section>
+		<section>
+			<section>
+				<h2>JavaScript <br>&&<br> мікроконтролери</h2>
 			</section>
 
 			<section>
 				<h2>Espruino</h2>
-				<p>Екосистема програмування мікроконтролерів на мові JavaScript</p>
+				<h3>2013</h3>
+
+				<img src="resources/espruino_boards.jpg" alt="">
+			</section>
+			<section>
+				<h3>Екосистема програмування мікроконтролерів на мові JavaScript</h3>
 				<ul>
 					<li>плати Espruino і сумісні пристрої</li>
 					<li>прошивка з інтерпретатором JavaScript</li>
@@ -104,7 +123,7 @@
 							setInterval(function() {
 								b != b;
 								digitalWrite(LED2, b);
-							}, 1024);
+							}, 1234);
 						</code></pre>
 					</div>
 					<div class="column">
@@ -134,45 +153,80 @@
 		</section>
 
 		<section>
-			<h2>IskraJS</h2>
-			<div class="columns">
-				<div class="column" style="width: 40%">
-					<img src="iskra-js.jpg" alt="">
-				</div>
-				<div class="column" style="text-align: left; width: 60%; padding-left: 20px; padding-top: 30px;">
-					<ul>
-						<li>Мікроконтроллер: STM32F405RG<br>(32-бітний ARM Cortex M4)</li>
-						<li>Тактова частота: 168 МГц</li>
-						<li>Об'єм флеш-пам'яті: 1024 КБ</li>
-						<li>Об'єм SRAM: 192 КБ</li>
-					</ul>
-				</div>
-			</div>
+			<section>
+				<h2>IskraJS</h2>
+				<img src="resources/iskra-js.jpg" alt="">
+			</section>
+			<section>
+				<ul>
+					<li>Мікроконтролер: STM32F405RG<br>(32-бітний ARM Cortex M4)</li>
+					<li>Тактова частота: 168 МГц</li>
+					<li>Об'єм флеш-пам'яті: 1024 КБ</li>
+					<li>Об'єм SRAM: 192 КБ</li>
+				</ul>
+			</section>
 		</section>
 
 		<section>
-			<h2>Набір додаткового API</h2>
-			<div class="columns">
-				<div class="column">
-					<ul>
-						<li>setWatch</li>
-						<li>pinMode</li>
-						<li>digital[Read/Pulse/Write]</li>
-						<li>analog[Read/Write]</li>
-					</ul>
+			<section>
+				<h2>API</h2>
+				<div class="columns">
+					<div class="column">
+						<ul>
+							<li>setWatch</li>
+							<li>pinMode</li>
+							<li>digital[Read/Pulse/Write]</li>
+							<li>analog[Read/Write]</li>
+							<li><s>delay</s></li>
+						</ul>
+					</div>
+					<div class="column">
+						<ul>
+							<li>SPI</li>
+							<li>File API</li>
+							<li>I2C</li>
+							<li>Serial</li>
+							<li>OneWire</li>
+						</ul>
+					</div>
 				</div>
-				<div class="column">
-					<ul>
-						<li>SPI</li>
-						<li>File API</li>
-						<li>I2C</li>
-						<li>Serial</li>
-						<li>OneWire</li>
-					</ul>
-				</div>
-			</div>
+			</section>
+
+			<section>
+				<h2>Delay</h2>
+				<pre><code data-trim data-noescape>
+					function delay(d) {
+						var t = getTime() + d;
+						while(getTime() &lt; t);
+					}
+				</code></pre>
+			</section>
+
+			<section>
+				<h2>Бібліотеки</h2>
+				<pre><code data-trim data-noescape>
+					var servo = require('@amperka/servo').connect(P13);
+					var pot = require('@amperka/pot').connect(A2);
+				</code></pre>
+			</section>
+
+			<section>
+				<h2>npm модулі?</h2>
+				<p>😭</p>
+			</section>
 		</section>
 
+		<section>
+			<section>
+				<h2>Examples</h2>
+			</section>
+
+			<section>
+				<img src="resources/bot.png" height="500" alt=""><br>
+				<a href="https://t.me/kh_mk_light_bot">t.me/kh_mk_light_bot</a>
+			</section>
+		</section>
+		
 		<section>
 			<h2>Висновки</h2>
 			<ul>
@@ -180,6 +234,23 @@
 				<li>Можливість відправки команд процесору</li>
 				<li>API схоже з Arduino та Node.JS</li>
 			</ul>
+		</section>
+
+		<section>
+
+			<img src="resources/qrcode.png" height="400" alt="">
+
+			<a href="https://kostyandrew.github.io/microcontrollers/">kostyandrew.github.io/microcontrollers/</a>
+			
+			<div class="social">
+				<a href="https://twitter.com/kostyandrew"><i class="fa fa-twitter"></i></a>&nbsp;
+				<a href="https://github.com/iKostyandrew"><i class="fa fa-facebook-official"></i></a>&nbsp;
+				<a href="https://github.com/kostyandrew"><i class="fa fa-github"></i></a>
+				<br>
+				<span>
+						@kostyandrew
+					</span>
+			</div>
 		</section>
 	</div>
 </div>
